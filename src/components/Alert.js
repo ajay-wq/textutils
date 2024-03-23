@@ -11,8 +11,11 @@ function Alert(props) {
     }
 
   return (
-      props.alert && <div class={`alert alert-${uncapitalize(props.alert.type)} alert-dismissible fade show`} role="alert">
+    // Here resolved Commulative Layout shift Problem on line 15 in alert.js , due to alert there was shifting up down
+    <div style={{height: '50px'}}> 
+      {props.alert && <div className={`alert alert-${uncapitalize(props.alert.type)} alert-dismissible fade show`} role="alert">
         <strong>{capitalize(props.alert.type)}</strong>: {props.alert.msg}
+      </div>}
     </div>
   )
 }
